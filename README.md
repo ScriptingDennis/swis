@@ -2,9 +2,10 @@
 lookup_plugins/ swis : call from Ansible playbook to r/w columns from Orion DB not included as columns in dynamic inventory. uses SolarWinds swis api
 
 Goes under playbook folder, e.g;
->Playbooks
->├── lookup_plugins
->│   ├── swis.py
+```Playbooks
+├── lookup_plugins
+│   ├── swis.py
+```
 
 ### Call it from within palybook to read a vlaue not included in the dynamic inventory script;
 using default connection string values
@@ -16,7 +17,7 @@ using default connection string values
 
 ### Call it from within playbook to update a value;
   using provided connection string values
-```
+```yaml
   - name: Update serial number on Orion via SDK
     debug: 
       msg: "{{inventory_hostname}} was: {{item[0]}}, Changed to: {{ansible_net_serialnum}}"
