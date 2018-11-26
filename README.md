@@ -1,5 +1,5 @@
 # swis
-lookup_plugins/ swis : call from Ansible playbook to r/w columns from Orion DB not included as columns in dynamic inventory. uses SolarWinds swis api
+lookup_plugins/ swis : Call from Ansible playbook to r/w columns from Orion DB that were not included as columns in dynamic inventory script. Uses SolarWinds swis api: https://github.com/solarwinds/OrionSDK/wiki/About-SWIS
 
 Goes under playbook folder, e.g;
 ```
