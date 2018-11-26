@@ -43,15 +43,12 @@ options:
 """
 
 EXAMPLES = """
-- name: Get Values From Orion -swis plugin default column value is SerialNumber
-  set_fact: 
-    serialno:    "{{ q('swis', inventory_hostname) }}"
+- name: url lookup splits lines by default
+  debug: msg="{{item}}"
+  loop: "{{ lookup('url', 'https://github.com/gremlin.keys', wantlist=True) }}"
 
-  - name: Update serial number on Orion via SDK
-    debug: 
-      msg: "{{inventory_hostname}} was: {{item[0]}}, Changed to: {{ansible_net_serialnum}}"
-    loop: "{{ q('swis', inventory_hostname, update_flag=true, new_value= ansible_net_serialnum, user_id=orion_user, passwd=orion_pass) }}"
-    changed_when: "item[0] != ansible_net_serialnum"
+- name: display ip ranges
+  debug: msg="{{ lookup('url', 'https://ip-ranges.amazonaws.com/ip-ranges.json', split_lines=False) }}"
 """
 
 RETURN = """
