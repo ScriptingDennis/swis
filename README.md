@@ -8,9 +8,9 @@ Playbooks
 │   ├── swis.py
 ```
 
-### Call it from within palybook to read a vlaue not included in the dynamic inventory script;
+### Call it from within palybook to read a value not included in the dynamic inventory script;
 using default connection string values
-```
+```yaml
   - name: Get Values From Orion -swis plugin default column value is SerialNumber
     set_fact: 
       serialno:    "{{ q('swis', inventory_hostname) }}"
